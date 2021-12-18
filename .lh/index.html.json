@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 32,
+            "activePatchIndex": 36,
             "patches": [
                 {
                     "date": 1639854523270,
@@ -136,6 +136,22 @@
                 {
                     "date": 1639856095528,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n         border: 1px solid transparent;\r\n         flex : 1;\r\n     }\r\n     .input button{\r\n-        padding: 5px 10px;\r\n+        padding: 5px 20px;\r\n         border: 1px solid rgb(207, 197, 197);\r\n     }\r\n     .notelist{\r\n         text-align: left;\r\n"
+                },
+                {
+                    "date": 1639856183578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         border: 1px solid rgb(207, 197, 197);\r\n     }\r\n     .notelist{\r\n         text-align: left;\r\n-        padding: 15px 3px;\r\n+        padding: 15px 5px;\r\n         display: flex;\r\n         flex-direction: column;\r\n         list-style: square;\r\n     }\r\n"
+                },
+                {
+                    "date": 1639856272353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,17 +41,17 @@\n         border: 1px solid rgb(207, 197, 197);\r\n     }\r\n     .notelist{\r\n         text-align: left;\r\n-        padding: 15px 5px;\r\n+        padding: 15px 10px;\r\n         display: flex;\r\n         flex-direction: column;\r\n         list-style: square;\r\n     }\r\n     .noteitem{\r\n         padding-bottom: 10px;\r\n         display: flex;\r\n-        font-size: 17px;\r\n+        font-size: 20px;\r\n     }\r\n \r\n     .noteitem span{\r\n         margin-left: auto;\r\n"
+                },
+                {
+                    "date": 1639856308206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         gap: 10px;\r\n         flex-wrap: wrap;\r\n     }\r\n     .input input{\r\n-        padding: 5px 10px;\r\n+        padding: 10px 10px;\r\n         background: rgba(204, 204, 204, 0.767);\r\n         outline: none;\r\n         border: 1px solid transparent;\r\n         flex : 1;\r\n"
+                },
+                {
+                    "date": 1639856334121,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     }\r\n \r\n     .noteitem span{\r\n         margin-left: auto;\r\n-        font-size: 15px;\r\n+        font-size: 16px;\r\n         line-height: 15px;\r\n         cursor: pointer;\r\n         padding: 0 10px;\r\n     }\r\n"
                 }
             ],
             "date": 1639854523270,
