@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+</head>
+<style>
+    *{padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        background: rgb(241,225,188);
+    }
+    .app{
+        text-align: center;
+    }
+    .title{
+        color: rgba(199, 179, 162, 0.767);
+    }
+    .input {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .input input{
+        padding: 5px 10px;
+        background: rgba(204, 204, 204, 0.767);
+        outline: none;
+        border: 1px solid transparent;
+    }
+    .input button{
+        padding: 5px 10px;
+        border: 1px solid rgb(207, 197, 197);
+    }
+    .notelist{
+        text-align: left;
+        padding: 15px 3px;
+        display: flex;
+        flex-direction: column;
+        list-style: square;
+    }
+    .noteitem{
+        padding-bottom: 10px;
+        display: flex;
+        font-size: 17px;
+    }
+
+    .noteitem span{
+        margin-left: auto;
+        font-size: 15px;
+        line-height: 15px;
+        cursor: pointer;
+        padding: 0 10px;
+    }
+
+</style>
+<body>
+        <div class="app">
+            <h1 class="title">Note</h1>
+            <div class="input">
+                <input onkeydown="event.keyCode === 13 && add()" id="textnote" type="text" placeholder="Mời bạn nhập vào đây">
+                <button id="button" onclick="add()">THÊM</button> 
+            </div>
+            <ul class="notelist">
+
+            </ul>
+        </div>
+</body>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        const NOTE_STORAGE_KEY = 'NOTES';
+        //localStorage
+        function getLocalstore(){
+            return JSON.parse(localStorage.getItem(NOTE_STORAGE_KEY)) || [];
+        }
+
+        function setLocalstore(note){
+            localStorage.setItem(NOTE_STORAGE_KEY,JSON.stringify(note))
+        }
+
+        const listNote = getLocalstore();
+
+        //render
+        function render(){
+
+           let html =  listNote.map((note,index)=>
+                `<li onclick="event.target == event.target.closest('.close i') && Remove(${index})" class="noteitem">
+                    ${note}
+                    <span class="close" id = "close"><i class="fas fa-times"></i></span>
+                </li>`
+            ).join('')
+
+
+            $('.notelist').innerHTML = html ;
+        }
+        //add
+        function add(){
+            let value = $('#textnote').value;
+            if(value.length > 0){
+            listNote.push(value)
+            $('#textnote').value = '';
+            render();
+        }
+            setLocalstore(listNote)
+        }
+
+        //remove
+        function Remove(index){
+            listNote.splice(index,1)
+            setLocalstore(listNote)
+            render();
+        }
+
+        render()
+    </script>
+</html>
